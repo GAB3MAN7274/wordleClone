@@ -99,7 +99,7 @@
             gameOverMessage.textContent = `You lost :( The word was ${answer}.`;
             submitButton.remove();
             textbox.remove();
-            return
+
         }
     });
 
@@ -107,7 +107,7 @@
         //build our match array se we easily see what matches
         let matchArray = buildingMatchArray(guess) //todo create function that turns words into arrays
 
-        //identify the current tr tag
+        //identify the current TR tag
         let currentGuessRow = board.children[currentGuessNumber];
         //identify the columns for each letter in that row
         let columns = currentGuessRow.children
