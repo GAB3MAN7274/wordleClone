@@ -67,16 +67,17 @@
 </div>
 </body>
 <script>
-    const answer = "" ;
+    let answer = "" ;
+    const wordList =['']
     const board = document.getElementById('board');
-    const textbox = document.querySelector('input');
+    const textBox = document.querySelector('input');
     const submitButton = document.querySelector('button');
     const gameOverMessage = document.getElementById('game-over');
 
     let currentGuessNumber = 0
 
     submitButton.addEventListener('click', function(e){
-        let guess = textbox.value;
+        let guess = textBox.value;
         if (guess.length !== 5){
             return //don't accept words that aren't 5 letters long
         }
@@ -90,7 +91,7 @@
         if (guess.toUpperCase() === answer.toUpperCase()){
             gameOverMessage.textContent = 'You Won!!!';
             submitButton.remove();
-            textbox.remove();
+            textBox.remove();
             return
         }
 
@@ -98,7 +99,7 @@
         if (currentGuessNumber >= board.children.length) {
             gameOverMessage.textContent = `You lost :( The word was ${answer}.`;
             submitButton.remove();
-            textbox.remove();
+            textBox.remove();
 
         }
     });
@@ -160,5 +161,9 @@
         }
         return matchArray
     }
+    function getRandomWord (){
+    answer = wordList[Math.floor(Math.random()*wordList.length)];
+    }
+    getRandomWord()
 </script>
 </html>
